@@ -107,7 +107,7 @@ function Connect-EXRMailbox {
             $ResourceURL = "Graph.Microsoft.com"
         }
         if ($AdalToken) {
-            $Resource = "graph.microsoft.com"			 
+            $Resource = "graph.microsoft.us"			 
             if ([bool]($AdalToken.PSobject.Properties.name -match "AccessToken")) {
                 #$AdalToken.access_token = 
                 Add-Member -InputObject $AdalToken -NotePropertyName access_token -NotePropertyValue (Get-ProtectedToken -PlainToken $AdalToken.AccessToken) -Force
@@ -134,7 +134,7 @@ function Connect-EXRMailbox {
         }
         else {
             if ($certificateFileName) {
-                $Resource = "graph.microsoft.com"
+                $Resource = "graph.microsoft.us"
                 $TenantId = Get-EXRTenantId -DomainName $MailboxName.Split('@')[1]
                 if (!$certificateFilePassword) {
                     $certificateFilePassword = Read-Host -AsSecureString -Prompt "Enter password for certificate file"
@@ -231,7 +231,7 @@ function Connect-EXRMailbox {
                         $redirectUrl = $defaultAppReg.RedirectUrl 
                     }
                     if ([String]::IsNullOrEmpty($ResourceURL)) {
-                        $Resource = "graph.microsoft.com"
+                        $Resource = "graph.microsoft.us"
                     }
                     else {
                         $Resource = $ResourceURL

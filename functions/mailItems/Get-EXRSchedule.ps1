@@ -67,7 +67,7 @@ function Get-EXRSchedule {
         $SchPost.endTime.Add("dateTime", $EndTime.ToString("yyyy-MM-ddTHH:mm:ss"))
         $SchPost.endTime.Add("timeZone", $TimeZone)
 
-        $RequestURL = "https://graph.microsoft.com/beta/me/calendar/getschedule"
+        $RequestURL = "https://graph.microsoft.us/beta/me/calendar/getschedule"
         $JSONOutput = Invoke-RestPost -RequestURL $RequestURL -HttpClient $HttpClient -AccessToken $AccessToken -MailboxName $MailboxName -Content (ConvertTo-Json -InputObject $SchPost -Depth 10) -TimeZone $TimeZone
         foreach ($Value in $JSONOutput.value) {
             write-output $Value

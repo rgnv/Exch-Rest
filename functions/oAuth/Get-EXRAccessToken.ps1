@@ -83,9 +83,9 @@ function Get-EXRAccessToken
 				$Prompt = "refresh_session"
 			}
 			if([String]::IsNullOrEmpty($TenantId)){
-				$Phase1auth = Show-OAuthWindow -Url "https://login.microsoftonline.com/common/oauth2/authorize?resource=https%3A%2F%2F$ResourceURL&client_id=$ClientId&response_type=code&redirect_uri=$redirectUrl&prompt=$Prompt"
+				$Phase1auth = Show-OAuthWindow -Url "https://login.microsoftonline.us/common/oauth2/authorize?resource=https%3A%2F%2F$ResourceURL&client_id=$ClientId&response_type=code&redirect_uri=$redirectUrl&prompt=$Prompt"
 			}else{
-				$Phase1auth = Show-OAuthWindow -Url "https://login.microsoftonline.com/$TenantId/oauth2/authorize?resource=https%3A%2F%2F$ResourceURL&client_id=$ClientId&response_type=code&redirect_uri=$redirectUrl&prompt=$Prompt"
+				$Phase1auth = Show-OAuthWindow -Url "https://login.microsoftonline.us/$TenantId/oauth2/authorize?resource=https%3A%2F%2F$ResourceURL&client_id=$ClientId&response_type=code&redirect_uri=$redirectUrl&prompt=$Prompt"
 			}
 			
 			$code = $Phase1auth["code"]

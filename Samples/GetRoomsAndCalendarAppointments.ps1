@@ -1,6 +1,6 @@
 
 $MailboxName = "gscales@datarumble.com"
-$Token = Get-EXRAccessToken -MailboxName $MailboxName  -ClientId 5471030d-f311-4c5d-91ef-74ca885463a7 -redirectUrl urn:ietf:wg:oauth:2.0:oob -ResourceURL graph.microsoft.com -beta  
+$Token = Get-EXRAccessToken -MailboxName $MailboxName  -ClientId 5471030d-f311-4c5d-91ef-74ca885463a7 -redirectUrl urn:ietf:wg:oauth:2.0:oob -ResourceURL graph.microsoft.us -beta  
 $rptCollection = @()
 Find-EXRRooms -Mailbox $MailboxName  -AccessToken $Token | foreach-object{
 	$RoomAddress =  $_.address

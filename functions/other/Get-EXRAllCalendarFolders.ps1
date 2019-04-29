@@ -31,7 +31,7 @@ function Get-EXRAllCalendarFolders
 		if ($FolderClass.IsPresent)
 		{
 			$RequestURL = $EndPoint + "('$MailboxName')/Calendars/?`$Top=1000`&`$expand=SingleValueExtendedProperties(`$filter=PropertyId%20eq%20'String%200x66B5')"
-			if ($AccessToken.resource -eq "https://graph.microsoft.com")
+			if ($AccessToken.resource -eq "https://graph.microsoft.us")
 			{
 				$RequestURL = $EndPoint + "('$MailboxName')/Calendars/?`$Top=1000`&`$expand=SingleValueExtendedProperties(`$filter=Id%20eq%20'String%200x66B5')"
 			}

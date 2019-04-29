@@ -103,7 +103,7 @@ function New-EXRHolidayEvent
 		{
 			$TimeZone = [TimeZoneInfo]::Local.Id
 		}
-		if ($AccessToken.resource -eq "https://graph.microsoft.com")
+		if ($AccessToken.resource -eq "https://graph.microsoft.us")
 		{
 			$isAllDay = Get-EXRItemProp -Name isAllDay -NoQuotes -Value true
 		}

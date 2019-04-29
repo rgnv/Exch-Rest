@@ -52,7 +52,7 @@ function Get-EXRBatchItems {
             $MailboxName = $AccessToken.mailbox
         } 
         $HttpClient = Get-HTTPClient -MailboxName $MailboxName
-        $RequestURL = "https://graph.microsoft.com/v1.0/`$batch"
+        $RequestURL = "https://graph.microsoft.us/v1.0/`$batch"
         $RequestContent = "{`r`n`"requests`": ["
         $itemCount = 1
         foreach ($Item in $Items) {

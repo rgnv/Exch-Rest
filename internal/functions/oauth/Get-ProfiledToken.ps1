@@ -10,7 +10,7 @@ function Get-ProfiledToken {
     )
     Process {
         if ([String]::IsNullOrEmpty($ResourceURL)) {
-            $ResourceURL = "graph.microsoft.com" 
+            $ResourceURL = "graph.microsoft.us" 
         }
         if ($Script:TokenCache.ContainsKey($ResourceURL)) {
             $AccessToken = $null

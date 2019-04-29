@@ -37,18 +37,18 @@ function Get-EndPoint
 					$EndPoint = "https://outlook.office.com/api/v2.0/" + $Segment
 				}
 			}
-			"https://graph.microsoft.com" {
+			"https://graph.microsoft.us" {
 				if ($AccessToken.Beta)
 				{
-					$EndPoint = "https://graph.microsoft.com/beta/" + $Segment
+					$EndPoint = "https://graph.microsoft.us/beta/" + $Segment
 				}
 				else
 				{
 					if($beta.IsPresent){
-						$EndPoint = "https://graph.microsoft.com/beta/" + $Segment	
+						$EndPoint = "https://graph.microsoft.us/beta/" + $Segment	
 					}
 					else{
-						$EndPoint = "https://graph.microsoft.com/v1.0/" + $Segment				
+						$EndPoint = "https://graph.microsoft.us/v1.0/" + $Segment				
 					}					
 				}
 			}

@@ -8,7 +8,7 @@ function Get-EXRTestAccessToken{
 
     )
     Begin{
-        $Resource = "graph.microsoft.com"
+        $Resource = "graph.microsoft.us"
         if($Outlook.IsPresent){
             $Resource = ""
         }

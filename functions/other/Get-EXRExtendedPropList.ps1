@@ -14,7 +14,7 @@ function Get-EXRExtendedPropList
 	{
 		$rtString = "";
 		$PropName = "PropertyId"
-		if ($AccessToken.resource -eq "https://graph.microsoft.com")
+		if ($AccessToken.resource -eq "https://graph.microsoft.us")
 		{
 			$PropName = "Id"
 		}

@@ -41,7 +41,7 @@ function Invoke-PresenceDLCheck {
         $AppToken = $null
         $connectedToSkype = $false
         $ToRecipents = @();
-        Connect-ExrMailbox -MailboxName $ServiceAccount -ClientId $ServiceAccountClientId -Credential $ServiceAccountCredential  -ResourceURL graph.microsoft.com
+        Connect-ExrMailbox -MailboxName $ServiceAccount -ClientId $ServiceAccountClientId -Credential $ServiceAccountCredential  -ResourceURL graph.microsoft.us
         $Group = Get-EXRUnifedGroups -mail $GroupEmailAddress
         #Get Group Post created in the last 5 minutes
         $Threads = Get-EXRGroupThreads -Group $Group -lastDeliveredDateTime (Get-Date).AddMinutes(-5)
@@ -79,9 +79,9 @@ function Invoke-PresenceDLCheck {
                     if (!$AppToken) {
                         $TenantId = Get-EXRTenantId -DomainName  $LastPost.sender.emailAddress.address.Split('@')[1]
                         if(![String]::IsNullOrEmpty($CertificateFilePath)){
-                            $AppToken = Get-EXRAppOnlyToken -MailboxName $LastPost.sender.emailAddress.address -CertFileName $CertificateFilePath -password $CertificateFilePassword -ClientId $AppTokenApplicationId -NoCache -TenantId $TenantId -ResourceURL "graph.microsoft.com"
+                            $AppToken = Get-EXRAppOnlyToken -MailboxName $LastPost.sender.emailAddress.address -CertFileName $CertificateFilePath -password $CertificateFilePassword -ClientId $AppTokenApplicationId -NoCache -TenantId $TenantId -ResourceURL "graph.microsoft.us"
                         }else{
-                            $AppToken = Get-EXRAppOnlyToken -MailboxName $LastPost.sender.emailAddress.address -Certificate $Certificate -ClientId $AppTokenApplicationId -NoCache -TenantId $TenantId -ResourceURL "graph.microsoft.com"
+                            $AppToken = Get-EXRAppOnlyToken -MailboxName $LastPost.sender.emailAddress.address -Certificate $Certificate -ClientId $AppTokenApplicationId -NoCache -TenantId $TenantId -ResourceURL "graph.microsoft.us"
                         }
                     }
             

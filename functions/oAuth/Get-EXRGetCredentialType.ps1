@@ -10,7 +10,7 @@ function Get-EXRCredentialType {
     )
     Process {
         $HttpClient = Get-HTTPClient -MailboxName $MailboxName       
-        $RequestURL = "https://login.microsoftonline.com/?login_hint=" + $MailboxName
+        $RequestURL = "https://login.microsoftonline.us/?login_hint=" + $MailboxName
         Add-Type -AssemblyName System.Net.Http
         $handler = New-Object  System.Net.Http.HttpClientHandler
         $handler.CookieContainer = New-Object System.Net.CookieContainer

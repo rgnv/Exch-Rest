@@ -5,7 +5,7 @@ $ProcessedFolderPath = "\Inbox\Processed"
 $OneDriveUploadFilePath = "/test" 
 
 ##Get the Access Token
-$AccessToken =  Get-EXRAccessToken -MailboxName $MailboxName  -ClientId 5471030d-f311-4c5d-91ef-74ca885463a7 -redirectUrl "urn:ietf:wg:oauth:2.0:oob" -ResourceURL graph.microsoft.com  
+$AccessToken =  Get-EXRAccessToken -MailboxName $MailboxName  -ClientId 5471030d-f311-4c5d-91ef-74ca885463a7 -redirectUrl "urn:ietf:wg:oauth:2.0:oob" -ResourceURL graph.microsoft.us  
 ##Search the Inbox
 $Filter = "IsRead eq false AND HasAttachments eq true AND Subject eq '" + $Subject + "'"
 $Items = Get-EXRFolderItems -MailboxName $MailboxName -AccessToken $AccessToken -FolderPath \Inbox -Filter $Filter

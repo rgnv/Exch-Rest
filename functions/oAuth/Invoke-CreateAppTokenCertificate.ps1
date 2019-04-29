@@ -35,7 +35,7 @@ function Invoke-EXRCreateAppTokenCertificate {
         $base64Thumbprint = [System.Convert]::ToBase64String($bin)
         $keyid = [System.Guid]::NewGuid().ToString()
         Remove-Item $CertPath
-        $RequestURL = "https://graph.microsoft.com/beta/applications('" + $ObjectId + "')"
+        $RequestURL = "https://graph.microsoft.us/beta/applications('" + $ObjectId + "')"
         $PostContent = @{}
         $PostContent.Add("keyCredentials", @(@{ customKeyIdentifier = $base64Thumbprint; keyId = $keyid; type = "AsymmetricX509Cert"; usage = "Verify"; key = $base64Value }))
         $JsonPost = ConvertTo-Json -Depth 10 -InputObject $PostContent
