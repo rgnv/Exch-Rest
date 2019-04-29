@@ -41,7 +41,7 @@ function Invoke-EXRMStopSubscription {
     Process {
         
         if ($AccessToken -eq $null) {
-            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office.com" 
+            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office365.us" 
             if ($AccessToken -eq $null) {
                 $AccessToken = Get-EXRAccessToken -MailboxName $MailboxName       
             }                 
@@ -72,7 +72,7 @@ function Invoke-EXRMStopSubscription {
         }
         $PublisherId = $TenantId
         $HttpClient = Get-HTTPClient -MailboxName $MailboxName
-        $RequestURL = "https://manage.office.com/api/v1.0/{0}/activity/feed/subscriptions/stop?contentType={1}&PublisherIdentifier={2}" -f $TenantId, $ContentType, $PublisherId 
+        $RequestURL = "https://manage.office365.us/api/v1.0/{0}/activity/feed/subscriptions/stop?contentType={1}&PublisherIdentifier={2}" -f $TenantId, $ContentType, $PublisherId 
         $JSONOutput = Invoke-RestPOST -RequestURL $RequestURL -HttpClient $HttpClient -AccessToken $AccessToken -MailboxName $MailboxName -Content ""
         return $JSONOutput 
 		

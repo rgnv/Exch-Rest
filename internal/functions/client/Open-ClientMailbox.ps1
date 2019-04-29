@@ -12,7 +12,7 @@
 		$Script:Treeinfo.Clear()
 		if ($AccessToken -eq $null)
 		{
-			$Script:AccessToken = Get-EXRAccessToken -MailboxName $emEmailAddressTextBox.Text -ClientId $unCASUrlTextBox.Text -redirectUrl $RedirectTextBox.Text -ResourceURL graph.Microsoft.com
+			$Script:AccessToken = Get-EXRAccessToken -MailboxName $emEmailAddressTextBox.Text -ClientId $unCASUrlTextBox.Text -redirectUrl $RedirectTextBox.Text -ResourceURL graph.microsoft.us
 		}
 		else
 		{

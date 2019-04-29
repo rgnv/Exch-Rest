@@ -20,7 +20,7 @@ function Get-EXRMSubscriptionContentBlob {
     )
     Process {
         if ($AccessToken -eq $null) {
-            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office.com" 
+            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office365.us" 
             if ($AccessToken -eq $null) {
                 $AccessToken = Get-EXRAccessToken -MailboxName $MailboxName       
             }                 

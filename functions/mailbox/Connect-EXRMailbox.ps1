@@ -100,11 +100,11 @@ function Connect-EXRMailbox {
         }
         if ($ManagementAPI.IsPresent) {
             if ([String]::IsNullOrEmpty($ResourceURL)) {
-                $ResourceURL = "manage.office.com"
+                $ResourceURL = "manage.office365.us"
             }
         }
         if (!$ResourceURL) {
-            $ResourceURL = "Graph.Microsoft.com"
+            $ResourceURL = "graph.microsoft.us"
         }
         if ($AdalToken) {
             $Resource = "graph.microsoft.us"			 

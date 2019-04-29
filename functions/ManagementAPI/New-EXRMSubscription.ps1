@@ -53,7 +53,7 @@ function New-EXRMSubscription {
     Process {
         
         if ($AccessToken -eq $null) {
-            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office.com" 
+            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office365.us" 
             if ($AccessToken -eq $null) {
                 $AccessToken = Get-EXRAccessToken -MailboxName $MailboxName       
             }                 
@@ -96,7 +96,7 @@ function New-EXRMSubscription {
             $PostContent += "}`r`n}"
         }
         $HttpClient = Get-HTTPClient -MailboxName $MailboxName
-        $RequestURL = "https://manage.office.com/api/v1.0/{0}/activity/feed/subscriptions/start?contentType={1}&PublisherIdentifier={2}" -f $TenantId, $ContentType, $PublisherId 
+        $RequestURL = "https://manage.office365.us/api/v1.0/{0}/activity/feed/subscriptions/start?contentType={1}&PublisherIdentifier={2}" -f $TenantId, $ContentType, $PublisherId 
         $JSONOutput = Invoke-RestPOST -RequestURL $RequestURL -HttpClient $HttpClient -AccessToken $AccessToken -MailboxName $MailboxName -Content $PostContent
         return $JSONOutput 
 		

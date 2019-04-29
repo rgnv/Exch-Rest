@@ -20,7 +20,7 @@ function Get-EXRMHistoricalStatus
 		$PublisherId = "5b24a168-aa6c-40db-b191-b509184797fb"
 		if($AccessToken -eq $null)
         {
-            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office.com" 
+            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office365.us" 
             if($AccessToken -eq $null){
                 $AccessToken = Get-EXRAccessToken -MailboxName $MailboxName       
             }                 
@@ -33,7 +33,7 @@ function Get-EXRMHistoricalStatus
 			$TenantId = Get-EXRtenantId -Domain $HostDomain
 		}
 		$HttpClient = Get-HTTPClient -MailboxName $MailboxName
-		$RequestURL = "https://manage.office.com/api/v1.0/{0}/ServiceComms/HistoricalStatus" -f $TenantId,$PublisherId 
+		$RequestURL = "https://manage.office365.us/api/v1.0/{0}/ServiceComms/HistoricalStatus" -f $TenantId,$PublisherId 
 		$JSONOutput = Invoke-RestGet -RequestURL $RequestURL -HttpClient $HttpClient -AccessToken $AccessToken -MailboxName $MailboxName
 		return $JSONOutput.value 
 		

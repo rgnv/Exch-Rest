@@ -53,7 +53,7 @@ function Get-EXRMSubscriptionContent {
     )
     Process {
         if ($AccessToken -eq $null) {
-            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office.com" 
+            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office365.us" 
             if ($AccessToken -eq $null) {
                 $AccessToken = Get-EXRAccessToken -MailboxName $MailboxName       
             }                 
@@ -86,10 +86,10 @@ function Get-EXRMSubscriptionContent {
         $HttpClient = Get-HTTPClient -MailboxName $MailboxName
         if ([String]::IsNullOrEmpty($ContentType)) {throw "You must choose or entry a ContentType"}
         if ($StartTime -eq $null) {
-            $RequestURL = "https://manage.office.com/api/v1.0/{0}/activity/feed/subscriptions/content?contentType={1}&PublisherIdentifier={2}" -f $TenantId, $ContentType, $PublisherId
+            $RequestURL = "https://manage.office365.us/api/v1.0/{0}/activity/feed/subscriptions/content?contentType={1}&PublisherIdentifier={2}" -f $TenantId, $ContentType, $PublisherId
         }
         else {
-            $RequestURL = "https://manage.office.com/api/v1.0/{0}/activity/feed/subscriptions/content?contentType={1}&PublisherIdentifier={2}&startTime={3}&endTime={4}" -f $TenantId, $ContentType, $PublisherId, $StartTime.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"), $EndTime.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+            $RequestURL = "https://manage.office365.us/api/v1.0/{0}/activity/feed/subscriptions/content?contentType={1}&PublisherIdentifier={2}&startTime={3}&endTime={4}" -f $TenantId, $ContentType, $PublisherId, $StartTime.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"), $EndTime.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
         }
         $NextPageHeader = ""
         do {

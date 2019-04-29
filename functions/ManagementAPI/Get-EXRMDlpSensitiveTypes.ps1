@@ -16,7 +16,7 @@ function Get-EXRMDlpSensitiveTypes {
     )
     Process {
         if ($AccessToken -eq $null) {
-            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office.com" 
+            $AccessToken = Get-ProfiledToken -MailboxName $MailboxName -ResourceURL "manage.office365.us" 
             if ($AccessToken -eq $null) {
                 $AccessToken = Get-EXRAccessToken -MailboxName $MailboxName       
             }                 
@@ -30,7 +30,7 @@ function Get-EXRMDlpSensitiveTypes {
         }
         $PublisherId = $TenantId
         $HttpClient = Get-HTTPClient -MailboxName $MailboxName
-        $RequestURL = "https://manage.office.com/api/v1.0/{0}/activity/feed/resources/dlpSensitiveTypes?PublisherIdentifier={1}" -f $TenantId, $PublisherId 
+        $RequestURL = "https://manage.office365.us/api/v1.0/{0}/activity/feed/resources/dlpSensitiveTypes?PublisherIdentifier={1}" -f $TenantId, $PublisherId 
         $JSONOutput = Invoke-RestGet -RequestURL $RequestURL -HttpClient $HttpClient -AccessToken $AccessToken -MailboxName $MailboxName
         return $JSONOutput 
 		
